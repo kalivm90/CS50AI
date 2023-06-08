@@ -1,14 +1,16 @@
 class Node():
-    def __init__(self, state, parent, action):
+    def __init__(self, state, parent, action) -> None:
         self.state = state
         self.parent = parent
         self.action = action
 
+    def __repr__(self) -> str:
+        return f"state: {self.state}, parent: {self.parent}, action: {self.action}"
 
 class StackFrontier():
     def __init__(self):
         self.frontier = []
-
+        
     def add(self, node):
         self.frontier.append(node)
 
@@ -36,3 +38,6 @@ class QueueFrontier(StackFrontier):
             node = self.frontier[0]
             self.frontier = self.frontier[1:]
             return node
+
+    def __repr__(self): 
+        return self.frontier
